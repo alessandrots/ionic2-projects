@@ -14,27 +14,27 @@
 	<ion-list no-lines>
 		<ion-item>
 			<ion-label floating> Name </ion-label>
-			<ion-input type="text"></ion-input> <!-- placeholder="Entre o cpf do usuário."-->
+			<ion-input type="text" [(ngModel)]="user.name"></ion-input> <!-- placeholder="Entre o cpf do usuário."-->
 		</ion-item>
 
 		<ion-item>
 			<ion-label floating> Username </ion-label>
-			<ion-input type="text"></ion-input> <!-- placeholder="Entre o cpf do usuário."-->
+			<ion-input type="text" [(ngModel)]="user.username"></ion-input> <!-- placeholder="Entre o cpf do usuário."-->
 		</ion-item>
 
 		<ion-item>
 			<ion-label floating> Email </ion-label>
-			<ion-input type="email"></ion-input> <!-- placeholder="Entre o cpf do usuário."-->
+			<ion-input type="email" [(ngModel)]="user.email"></ion-input> <!-- placeholder="Entre o cpf do usuário."-->
 		</ion-item>
 
 		<ion-item>
 			<ion-label floating> Password </ion-label>
-			<ion-input type="password"></ion-input> <!-- placeholder="Entre a senha do usuário." -->
+			<ion-input type="password" [(ngModel)]="user.password"></ion-input> <!-- placeholder="Entre a senha do usuário." -->
 		</ion-item>
 
 		<ion-item>
 			<ion-label floating>Confirm Password </ion-label>
-			<ion-input type="password"></ion-input> <!-- placeholder="Entre a senha do usuário." -->
+			<ion-input type="password" [(ngModel)]="confirmPassword"></ion-input> <!-- placeholder="Entre a senha do usuário." -->
 		</ion-item>
 	</ion-list>
 
