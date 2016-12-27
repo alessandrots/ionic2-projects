@@ -1,0 +1,49 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Welcome</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+<ion-fab bottom right>
+	<button ion-fab icon-only (click)="showAddDialog()">
+		<ion-icon name="add"> </ion-icon>
+	</button>
+</ion-fab>
+
+<!--
+	<ul>
+	   <li *ngFor="#item of createRange(5); #currentElementIndex=index+1">
+	      {{currentElementIndex}} Something
+	   </li>
+	</ul>
+-->
+
+<ion-list>
+	<ion-item-sliding  *ngFor="let item of friends">
+		<ion-item>
+			<ion-avatar item-left>
+				<img src="http://lorempixel.com/32/32"/>
+			</ion-avatar>
+			
+	      	<h2> {{ item.name }} </h2>
+			<h3> {{ item.email }}</h3>
+			<p>{{ item.numero }}</p>
+		</ion-item>
+
+		<ion-item-options side="right">
+			<button ion-button icon-only color="secondaray">
+				<ion-icon name="create"> </ion-icon>
+			</button>
+
+			<button color="danger" ion-button icon-only> 
+				<ion-icon name="trash"> </ion-icon>
+			</button>
+		</ion-item-options>
+
+	</ion-item-sliding>
+</ion-list>
+</ion-content>
