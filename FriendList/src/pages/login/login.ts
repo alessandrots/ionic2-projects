@@ -5,9 +5,11 @@ import { User }  from '../../user-model';
 import { Http, Headers, RequestOptions} from '@angular/http'; 
 import { ListPage } from '../list-page/list-page';
 import 'rxjs/add/operator/map';
+import { Storage } from '@ionic/storage';
 
 @Component({
-  templateUrl: 'login.html'
+  templateUrl: 'login.html',
+  providers: [Storage]
 })
 export class LoginPage {
 
@@ -20,12 +22,11 @@ export class LoginPage {
   url:string;
   headers:Headers;
 
-  constructor(public navCtrl: NavController, public alertController: AlertController, public http:Http) {
+  constructor(public navCtrl: NavController, public alertController: AlertController, public http:Http, public localStorage: Storage) {
     
   }
 
   login() {
-
   	if (!this.user.username || !this.user.password) {
   		let alert = this.alertController.create({
   			title:"Preenchimento Obrigatorio",
@@ -42,10 +43,12 @@ export class LoginPage {
   	this.url = "http://localhost:8000/rest/login?username="+this.user.username+"&password="+this.user.password;
     this.http.get(this.url, this.montarHeaders())
     .subscribe(res => {
-    	console.log(res);
+    	// console.log('RETORNO LOGIN = ', res.json().data.id);
     	//navigate to main page
     	// this.navCtrl.push(ListPage, {});
-    	this.navCtrl.setRoot(ListPage);
+      this.localStorage.set('user', res.json().data.id).then( (data) => {
+        this.navCtrl.setRoot(ListPage);
+      });
     }, err => {
       console.log('erro = ', err);
       let alert = this.alertController.create({

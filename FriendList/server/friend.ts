@@ -6,33 +6,52 @@ export class Friend {
 }
 
 let friends= [
-	{"id":1,
-	"name":"Teste1",
-	"email":"teste1@mail.com",
-	"numero":2
+	{
+		"id":1,
+		"name":"Teste1",
+		"email":"teste1@mail.com",
+		"numero":2
 	},
-	{"id":2,
-	"name":"Teste2",
-	"email":"teste2@mail.com",
-	"numero":4
+	{
+		"id":2,
+		"name":"Teste2",
+		"email":"teste2@mail.com",
+		"numero":4
 	},
-	{"id":3,
-	"name":"Teste3",
-	"email":"teste3@mail.com",
-	"numero":6
+	{
+		"id":3,
+		"name":"Teste3",
+		"email":"teste3@mail.com",
+		"numero":6
 	},
-	{"id":4,
-	"name":"Teste4",
-	"email":"teste4@mail.com",
-	"numero":8
+	{
+		"id":4,
+		"name":"Teste4",
+		"email":"teste4@mail.com",
+		"numero":8
 	},
-	{"id":5,
-	"name":"Teste5",
-	"email":"teste5@mail.com",
-	"numero":10
+	{
+		"id":5,
+		"name":"Teste5",
+		"email":"teste5@mail.com",
+		"numero":10
 	}
 ]
 
 export function getFriends(params = <any>{}): Friend[] {
 	return friends;
+}
+
+export function getFriend(body = <any>{}): Friend {
+	let id = parseInt(body.id);
+	// console.log('id = ', id);
+	let f = friends.filter((v) => {
+		// console.log('loop v = ', v);
+		if (v.id == id) {
+			console.log('friend found = ', v);
+			return true;
+		}
+	});
+
+	return f[0];
 }

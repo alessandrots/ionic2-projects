@@ -16,7 +16,7 @@ import { Server as HttpServer } from 'http';
 // import { getFinanciadoresPessoaFisica, getFinanciadoresPessoaJuridica, getDetalheFinanciador } from './financiador';
 // import { getBancaExaminadora }  from './bancaexaminadora';
 // import { getTurmas, getDetalheTurma} from './turma';
-import { getFriends} from './friend';
+import { getFriends, getFriend } from './friend';
 
 // HTTP API
 
@@ -232,7 +232,14 @@ app.get('/rest/login', function(req, res, next) {
     var username = req.query.username;
     var password = req.query.password;
     console.log(' username = ' + username + ' password = ' + password);
-    res.send(' username = ' + username + ' password = ' + password);
+
+    let user = {
+        "id":1001,
+        "name":"Maria T. Santos",
+        "email":"maria@mail.com"
+
+    }
+    responder(res, user);
 });
 
 app.post('/rest/users', function(req, res, next) {
@@ -260,17 +267,37 @@ app.get('/rest/friends', function(req, res, next) {
     responder(res, getFriends(req.params));
 });
 
-// app.post('/rest/users2', function(req, res, next) {
+app.put('/rest/editFriend', function(req, res, next) {
+    var name    = req.body.name;
+    var email   = req.body.email;
+    var number  = req.body.number;
+    var id      = req.body.id;
 
-//     var name = req.params.name;
-//     var username = req.params.username;
-//     var email = req.params.email;
-//     var password = req.params.password;
+    // console.log('ID = ', id);
 
-//     console.log(name + ' ' + username + ' ' + email + ' ' + password)
+    var friend  = getFriend(req.body);
+    // console.log('friend = ', friend);
+    if (friend) {
+        responder(res, friend);
+    }
+    responder(res, {});
+});
 
-//     res.send(name + ' ' + username + ' ' + email + ' ' + password);
-// });
+app.put('/rest/deleteFriend', function(req, res, next) {
+    var name    = req.body.name;
+    var email   = req.body.email;
+    var number  = req.body.number;
+    var id      = req.body.id;
+
+    // console.log('ID = ', id);
+
+    var friend  = getFriend(req.body);
+    // console.log('friend = ', friend);
+    if (friend) {
+        responder(res, friend);
+    }
+    responder(res, {});
+});
 
 let ip = 'localhost';
 // let ip = '192.168.10.178';
@@ -282,11 +309,12 @@ const httpServer: HttpServer = app.listen(8000, ip, () => {
 
 function responder(res, dados) {
     // console.log(' dados = ', dados);
+    res.json({dataAtualizacao: new Date(), data: dados});
 
-    let random = Math.floor(Math.random() * 10);
-    if (random > 7) {
-        setTimeout(() => res.status(404).send('Not found'), 1000 + (100 * (Math.floor(Math.random() * 10) + 1)));
-    } else {
-        setTimeout(() => res.json({dataAtualizacao: new Date(), data: dados}), 1000 + (100 * (Math.floor(Math.random() * 10) + 1)));
-    }
+    // let random = Math.floor(Math.random() * 10);
+    // if (random > 7) {
+    //     setTimeout(() => res.status(404).send('Not found'), 1000 + (100 * (Math.floor(Math.random() * 10) + 1)));
+    // } else {
+    //     setTimeout(() => res.json({dataAtualizacao: new Date(), data: dados}), 1000 + (100 * (Math.floor(Math.random() * 10) + 1)));
+    // }
 }
