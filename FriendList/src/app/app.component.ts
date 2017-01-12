@@ -4,14 +4,11 @@ import { StatusBar, Splashscreen } from 'ionic-native';
 import { LoginPage } from '../pages/login/login';
 import { ParsePushPlugin } from '../native';
 
-// declare var ParsePushPlugin;
-
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
   rootPage = LoginPage;
-  // let push= ParsePushPlugin;
 
   constructor(platform: Platform) {
     platform.ready().then(() => {
@@ -52,20 +49,19 @@ export class MyApp {
         // });
 
         ParsePushPlugin.register().then (
-         (data)  => alert('Sucesso register'),
-         (error) => alert('Erro register: ' + error)
+         (data)  => alert('Sucesso register = ' + data),
+         (error) => alert('Erro register = ' + error)
         );
 
         ParsePushPlugin.getInstallationId().then (
-         (data) => alert('Sucesso getInstallationId'),
-         (error) => alert('Erro getInstallationId: ' + error)
+         (data) => alert('Sucesso getInstallationId = ' + data),
+         (error) => alert('Erro getInstallationId = ' + error)
         );
 
-        // ParsePushPlugin.subscribe('SampleChannel', function(msg) {
-        //     console.log('OK');
-        // }, function(e) {
-        //     console.log('error');
-        // });
+        ParsePushPlugin.subscribe('SampleChannel').then (
+         (data) => alert('subscribe msg = '+ data),
+         (error) => alert('Erro subscribe = ' + error)
+        );
 
         // ParsePushPlugin.unsubscribe('SampleChannel', function(msg) {
         //     console.log('OK');

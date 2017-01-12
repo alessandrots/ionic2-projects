@@ -27,17 +27,17 @@
   <preference name="FadeSplashScreenDuration" value="300"/>
 
   <preference name="ParseAppId" value="AppId1" />
-  <preference name="ParseServerUrl" value="https://parsewithionic-alessandrots.c9users.io/app1" />
+  <preference name="ParseServerUrl" value="https://parsewithionic-alessandrots.c9users.io/app1/parse" />
 
   <!-- If your parse-server config requires a client key, set this. If not, skip this preference -->
-  <preference name="ParseClientKey" value="your-parse-client-key" />
+  <preference name="ParseClientKey" value="masterKey" />
 
   <!-- required for Android push notification
     To get your GCM sender ID, enable GCM for your Android project in the Google Developer Console.
     The sender id is your project number, and should be a large integer like 123427208255.
     This is the same "senderId" to be used in your parse-server push configuration.
   -->
-  <preference name="ParseGcmSenderId" value="1009630319962" />
+  <preference name="ParseGcmSenderId" value="735188278908" />
 
   <!-- As standard, this plugin only shows the most recent PN in 
     the android notifications tray along with a count of unopened 

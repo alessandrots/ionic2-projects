@@ -143,7 +143,7 @@ export class SignupPage {
    // let headers = new Headers({ 'Content-Type': 'application/json'});
    // let options = new RequestOptions({ headers: headers });
 
-    console.log('this.user = ', this.user);
+    console.log('this.user = ', this.user.username);
 
     this.http.post(this.url, this.user, this.montarHeadersParse())
     // .map ( res => res.json())
@@ -161,7 +161,7 @@ export class SignupPage {
       });
       alert.present();
     }, err => {
-      console.log('erro = ', err);
+      console.log('erro = ', err.text());
       let alert = this.alertController.create({
           title: 'Error',
           message: err.text(),
