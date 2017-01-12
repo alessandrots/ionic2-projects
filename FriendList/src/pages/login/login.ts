@@ -6,6 +6,7 @@ import { Http, Headers, RequestOptions} from '@angular/http';
 import { ListPage } from '../list-page/list-page';
 import 'rxjs/add/operator/map';
 import { Storage } from '@ionic/storage';
+import { UserListPage } from '../list-user/list-user'
 
 @Component({
   templateUrl: 'login.html',
@@ -70,6 +71,10 @@ export class LoginPage {
     let headers = new Headers({ 'Content-Type': 'application/json'});
     let options = new RequestOptions({ headers: headers });
     return options;
+  }
+
+  listUsers() {
+    this.navCtrl.push(UserListPage, {});
   }
 
 }

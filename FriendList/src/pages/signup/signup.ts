@@ -81,10 +81,10 @@ export class SignupPage {
     }
 
     this.url = "http://localhost:8000/rest/users";
-   
-   // let headers = new Headers({ 'Content-Type': 'application/json'});
-   // let options = new RequestOptions({ headers: headers });
+    // this.url = "https://parsewithionic-alessandrots.c9users.io/app1/users";
 
+
+   
     this.http.post(this.url, JSON.stringify(this.user), this.montarHeaders())
     // .map ( res => res.json())
     .subscribe(res => {
@@ -124,5 +124,76 @@ export class SignupPage {
         return options;
         // return headers;
   }
+
+  signupToParse() {
+    if (this.user.password != this.confirmPassword) {
+      let alert = this.alertController.create({
+          title: 'Error',
+          message: 'Passwords do not match.  Please retry.',
+          buttons: ['Ok']
+      });
+      alert.present();
+      return;
+    }
+
+    // this.url = "http://localhost:8000/rest/users";
+    this.url = "https://parsewithionic-alessandrots.c9users.io/app1/users";
+                // https://parsewithionic-alessandrots.c9users.io/app1/classes/_User
+   
+   // let headers = new Headers({ 'Content-Type': 'application/json'});
+   // let options = new RequestOptions({ headers: headers });
+
+    console.log('this.user = ', this.user);
+
+    this.http.post(this.url, this.user, this.montarHeadersParse())
+    // .map ( res => res.json())
+    .subscribe(res => {
+      console.log('retorno = ', res);
+      let alert = this.alertController.create({
+        title: 'Success',
+        message: 'Account has been created.',
+        buttons: [{
+          text: 'Login',
+          // role: 'cancel',
+          handler: () => {
+            this.navCtrl.pop();
+          }}]
+      });
+      alert.present();
+    }, err => {
+      console.log('erro = ', err);
+      let alert = this.alertController.create({
+          title: 'Error',
+          message: err.text(),
+          buttons: ['Ok']
+      });
+      alert.present();
+    });
+  }
+
+  private montarHeadersParse() {
+        let headers = new Headers(
+          { 'X-Parse-Application-Id': 'AppId1',
+            'X-Parse-Master-Key': 'masterKey',
+            'Content-Type': 'application/json'
+          });
+        let options = new RequestOptions({ headers: headers });
+       
+        // let headers = new Headers();
+        // headers.append('Content-Type', 'application/x-www-form-urlencoded');
+        // headers.append('X-Parse-Application-Id', 'AppId1');
+        // headers.append('X-Parse-Master-Key', 'masterKey');
+        // headers.append('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+
+        // let options = new RequestOptions({ headers: headers });
+
+        return options;
+        // return headers;
+  }
+
+//   curl -X GET \
+// -H "X-Parse-Application-Id: AppId1" \
+// -H "X-Parse-Master-Key: masterKey" \
+// https://parsewithionic-alessandrots.c9users.io/app1/classes/_User
 
 }
