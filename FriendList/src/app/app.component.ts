@@ -73,15 +73,20 @@ export class MyApp {
 
     //4717112b-e5bd-4251-8351-d0131a70b4d1
 
+    //https://documentation.onesignal.com/docs/ionic-sdk-setup
+
+    //cordova plugin update onesignal-cordova-plugin
+
       // Enable to debug issues.
       window.plugins.OneSignal.setLogLevel({logLevel: 4, visualLevel: 4});
       
       var notificationOpenedCallback = function(jsonData) {
         console.log('notificationOpenedCallback: ' + JSON.stringify(jsonData));
+        alert('notificationOpenedCallback: ' + JSON.stringify(jsonData));
       };
 
       window.plugins.OneSignal
-        .startInit("Y4717112b-e5bd-4251-8351-d0131a70b4d1")
+        .startInit("4717112b-e5bd-4251-8351-d0131a70b4d1")
         .handleNotificationOpened(notificationOpenedCallback)
         .endInit();
         
