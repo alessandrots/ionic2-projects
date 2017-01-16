@@ -26,25 +26,28 @@
   <preference name="SplashMaintainAspectRatio" value="true"/>
   <preference name="FadeSplashScreenDuration" value="300"/>
 
-  <preference name="ParseAppId" value="AppId1" />
-  <preference name="ParseServerUrl" value="https://parsewithionic-alessandrots.c9users.io/app1/parse" />
+  <!-- <preference name="ParseAppId" value="AppId1" /> -->
+  
+  <!-- <preference name="ParseServerUrl" value="https://parsewithionic-alessandrots.c9users.io/app1" /> -->
+  <!-- <preference name="ParseServerUrl" value="http://parsewithionic-alessandrots.c9users.io/app1" /> -->
+  <!-- <preference name="ParseServerUrl" value="https://parsewithionic-alessandrots.c9users.io/parse/" /> -->
 
   <!-- If your parse-server config requires a client key, set this. If not, skip this preference -->
-  <preference name="ParseClientKey" value="masterKey" />
+  <!-- <preference name="ParseClientKey" value="masterKey" /> -->
 
   <!-- required for Android push notification
     To get your GCM sender ID, enable GCM for your Android project in the Google Developer Console.
     The sender id is your project number, and should be a large integer like 123427208255.
     This is the same "senderId" to be used in your parse-server push configuration.
   -->
-  <preference name="ParseGcmSenderId" value="735188278908" />
+  <!-- <preference name="ParseGcmSenderId" value="735188278908" /> -->
 
   <!-- As standard, this plugin only shows the most recent PN in 
     the android notifications tray along with a count of unopened 
     PNs. If you would like to override this behaviour and show all 
     PNs in the tray, then add this preference. 
     If not, skip this preference -->
-  <preference name="ParseMultiNotifications" value="true" />
+  <!-- <preference name="ParseMultiNotifications" value="true" /> -->
 
   <feature name="StatusBar">
     <param name="ios-package" onload="true" value="CDVStatusBar"/>
@@ -55,5 +58,5 @@
   <plugin name="cordova-plugin-splashscreen" spec="~4.0.1"/>
   <plugin name="cordova-plugin-statusbar" spec="~2.2.1"/>
   <plugin name="ionic-plugin-keyboard" spec="~2.2.1"/>
-  <plugin name="parse-push-plugin" spec="https://github.com/taivo/parse-push-plugin" />
+  <!-- <plugin name="parse-push-plugin" spec="https://github.com/taivo/parse-push-plugin" /> -->
 </widget>

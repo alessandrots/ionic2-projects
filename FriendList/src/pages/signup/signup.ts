@@ -137,8 +137,9 @@ export class SignupPage {
     }
 
     // this.url = "http://localhost:8000/rest/users";
-    this.url = "https://parsewithionic-alessandrots.c9users.io/app1/users";
+    // this.url = "https://parsewithionic-alessandrots.c9users.io/app1/users";
                 // https://parsewithionic-alessandrots.c9users.io/app1/classes/_User
+    this.url = "https://parsewithionic-alessandrots.c9users.io/app1/classes/_User";
    
    // let headers = new Headers({ 'Content-Type': 'application/json'});
    // let options = new RequestOptions({ headers: headers });

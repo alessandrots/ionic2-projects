@@ -2,7 +2,10 @@ import { Component } from '@angular/core';
 import { Platform } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
 import { LoginPage } from '../pages/login/login';
-import { ParsePushPlugin } from '../native';
+// import { ParsePushPlugin } from '../native';
+
+declare var window:any;
+// declare var ParsePushPlugin:any;
 
 @Component({
   templateUrl: 'app.html'
@@ -22,60 +25,69 @@ export class MyApp {
   }
 
   ativarPush() {
-      if(ParsePushPlugin){
-        // ParsePushPlugin.on('receivePN', function(pn){
-        //     console.log('yo i got this push notification:' + JSON.stringify(pn));
-        // });
+     //  if(ParsePushPlugin){
+     //    ParsePushPlugin.register().then (
+     //     (data)  => alert('Sucesso register = ' + data),
+     //     (error) => alert('Erro register = ' + error)
+     //    );
 
-        // // When the app is off or in background, push notifications get added
-        // // to the notification tray. When a user open a notification, you
-        // // can catch it via openPN
-        // ParsePushPlugin.on('openPN', function(pn){
-        //   console.log('a notification was opened:' + JSON.stringify(pn));
-        // });
+     //    ParsePushPlugin.subscribe('SampleChannelNew').then (
+     //     (data) => alert('subscribe msg = '+ data),
+     //     (error) => alert('Erro subscribe = ' + error)
+     //    );
 
-        // ParsePushPlugin.getInstallationId(function(id) {
-        //    // note that the javascript client has its own installation id,
-        //    // which is different from the device installation id.
-        //     console.log("device installationId: " + id);
-        // }, function(e) {
-        //     console.log('error');
-        // });
+     //    ParsePushPlugin.getInstallationId().then (
+     //     (data) => alert('Sucesso getInstallationId = ' + data),
+     //     (error) => alert('Erro getInstallationId = ' + error)
+     //    );
 
-        // ParsePushPlugin.getSubscriptions(function(subscriptions) {
-        //     console.log(subscriptions);
-        // }, function(e) {
-        //     console.log('error');
-        // });
+     //    ParsePushPlugin.getSubscriptions().then (
+     //     (data) => alert('Sucesso getSubscriptions = ' + data),
+     //     (error) => alert('Erro getSubscriptions = ' + error)
+     //    );
 
-        ParsePushPlugin.register().then (
-         (data)  => alert('Sucesso register = ' + data),
-         (error) => alert('Erro register = ' + error)
-        );
-
-        ParsePushPlugin.getInstallationId().then (
-         (data) => alert('Sucesso getInstallationId = ' + data),
-         (error) => alert('Erro getInstallationId = ' + error)
-        );
-
-        ParsePushPlugin.subscribe('SampleChannel').then (
-         (data) => alert('subscribe msg = '+ data),
-         (error) => alert('Erro subscribe = ' + error)
-        );
-
-        // ParsePushPlugin.unsubscribe('SampleChannel', function(msg) {
-        //     console.log('OK');
-        // }, function(e) {
-        //     console.log('error');
-        // });
-
-        //you can also listen to your own custom events
-        // Note: to push custom event, include 'event' key in your push payload,
-          // e.g. {alert: "sup", event:'chat'}
-        // ParsePushPlugin.on('receivePN:chat', chatEventHandler);
-        // ParsePushPlugin.on('receivePN:serverMaintenance', serverMaintenanceHandler);
+     //    //you can also listen to your own custom events
+     //    // Note: to push custom event, include 'event' key in your push payload,
+     //      // e.g. {alert: "sup", event:'chat'}
+     //    // ParsePushPlugin.on('receivePN:chat', chatEventHandler);
+     //    // ParsePushPlugin.on('receivePN:serverMaintenance', serverMaintenanceHandler);
 
          
-     }
+     // }
+
+    //  if(window.ParsePushPlugin){
+    //     ParsePushPlugin.getInstallationId(function(id) {
+    //        // note that the javascript client has its own installation id,
+    //        // which is different from the device installation id.
+    //         alert("device installationId: " + id);
+    //     }, function(e) {
+    //         alert('error');
+    //     });
+
+    //     ParsePushPlugin.subscribe('SampleChannel', function(msg) {
+    //         alert('OK');
+    //     }, function(e) {
+    //         alert('error');
+    //     });
+    // }
+
+    //4717112b-e5bd-4251-8351-d0131a70b4d1
+
+      // Enable to debug issues.
+      window.plugins.OneSignal.setLogLevel({logLevel: 4, visualLevel: 4});
+      
+      var notificationOpenedCallback = function(jsonData) {
+        console.log('notificationOpenedCallback: ' + JSON.stringify(jsonData));
+      };
+
+      window.plugins.OneSignal
+        .startInit("Y4717112b-e5bd-4251-8351-d0131a70b4d1")
+        .handleNotificationOpened(notificationOpenedCallback)
+        .endInit();
+        
+      // Call syncHashedEmail anywhere in your app if you have the user's email.
+      // This improves the effectiveness of OneSignal's "best-time" notification scheduling feature.
+      // window.plugins.OneSignal.syncHashedEmail(userEmail);
+
   }//
 }
