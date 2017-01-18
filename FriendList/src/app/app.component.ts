@@ -3,6 +3,7 @@ import { Platform } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
 import { LoginPage } from '../pages/login/login';
 // import { ParsePushPlugin } from '../native';
+import { OneSignal } from 'ionic-native';
 
 declare var window:any;
 // declare var ParsePushPlugin:any;
@@ -20,7 +21,10 @@ export class MyApp {
       StatusBar.styleDefault();
       Splashscreen.hide();
 
-      this.ativarPush();
+      // this.ativarPush();
+
+      // OK - FUNCIONOU
+      // this.ativarPushOneSignal2();
     });
   }
 
@@ -71,28 +75,107 @@ export class MyApp {
     //     });
     // }
 
-    //4717112b-e5bd-4251-8351-d0131a70b4d1
+    // //4717112b-e5bd-4251-8351-d0131a70b4d1
 
-    //https://documentation.onesignal.com/docs/ionic-sdk-setup
+    // //https://documentation.onesignal.com/docs/ionic-sdk-setup
 
-    //cordova plugin update onesignal-cordova-plugin
+    // //cordova plugin update onesignal-cordova-plugin
 
-      // Enable to debug issues.
-      window.plugins.OneSignal.setLogLevel({logLevel: 4, visualLevel: 4});
+    //   // Enable to debug issues.
+    //   window.plugins.OneSignal.setLogLevel({logLevel: 4, visualLevel: 4});
       
-      var notificationOpenedCallback = function(jsonData) {
-        console.log('notificationOpenedCallback: ' + JSON.stringify(jsonData));
-        alert('notificationOpenedCallback: ' + JSON.stringify(jsonData));
-      };
+    //   var notificationOpenedCallback = function(jsonData) {
+    //     console.log('notificationOpenedCallback: ' + JSON.stringify(jsonData));
+    //     alert('notificationOpenedCallback: ' + JSON.stringify(jsonData));
+    //   };
 
-      window.plugins.OneSignal
-        .startInit("4717112b-e5bd-4251-8351-d0131a70b4d1")
-        .handleNotificationOpened(notificationOpenedCallback)
-        .endInit();
+    //   window.plugins.OneSignal
+    //     .startInit("4717112b-e5bd-4251-8351-d0131a70b4d1")
+    //     .handleNotificationOpened(notificationOpenedCallback)
+    //     .endInit();
         
       // Call syncHashedEmail anywhere in your app if you have the user's email.
       // This improves the effectiveness of OneSignal's "best-time" notification scheduling feature.
       // window.plugins.OneSignal.syncHashedEmail(userEmail);
 
   }//
+
+
+  // //https://documentation.onesignal.com/docs/ionic-sdk-setup
+  // //cordova plugin update onesignal-cordova-plugin
+  // //4717112b-e5bd-4251-8351-d0131a70b4d1
+  // ativarPushOneSignal1() {
+  //     // Enable to debug issues.
+  //     window.plugins.OneSignal.setLogLevel({logLevel: 4, visualLevel: 4});
+      
+  //     var notificationOpenedCallback = function(jsonData) {
+  //       console.log('notificationOpenedCallback: ' + JSON.stringify(jsonData));
+  //       alert('notificationOpenedCallback: ' + JSON.stringify(jsonData));
+  //     };
+
+  //     window.plugins.OneSignal
+  //       .startInit("4717112b-e5bd-4251-8351-d0131a70b4d1")
+  //       .handleNotificationOpened(notificationOpenedCallback)
+  //       .endInit();
+        
+  //     // Call syncHashedEmail anywhere in your app if you have the user's email.
+  //     // This improves the effectiveness of OneSignal's "best-time" notification scheduling feature.
+  //     // window.plugins.OneSignal.syncHashedEmail(userEmail);
+  // }
+
+  //https://documentation.onesignal.com/docs/ionic-sdk-setup
+  //cordova plugin update onesignal-cordova-plugin
+  //4717112b-e5bd-4251-8351-d0131a70b4d1
+  ativarPushOneSignal2() {
+      OneSignal.startInit('4717112b-e5bd-4251-8351-d0131a70b4d1', "735188278908");
+
+      OneSignal.inFocusDisplaying(OneSignal.OSInFocusDisplayOption.InAppAlert);
+
+      let display=0;
+
+      // OneSignal.handleNotificationReceived().subscribe((data) => {
+      //    // do something when notification is received
+      //    this.notificationReceivedCallback(data);
+      // });
+
+      // OneSignal.handleNotificationOpened().subscribe((data) => {
+      //     // do something when a notification is opened
+      //     // alert('handleNotificationOpened subscribe ');
+      //     this.notificationOpenedCallback(data);
+      // });
+
+      OneSignal.handleNotificationReceived().subscribe(() => {
+         // do something when notification is received
+         alert('handleNotificationReceived');
+      });
+
+      OneSignal.handleNotificationOpened().subscribe(() => {
+          // do something when a notification is opened
+          alert('handleNotificationOpened');
+      });
+
+      OneSignal.inFocusDisplaying(display);
+
+      // OneSignal.handleNotificationReceived().subscribe(() => {
+      //    // do something when notification is received
+      //    alert('handleNotificationReceived subscribe ');
+      // });
+
+      // OneSignal.handleNotificationOpened().subscribe(() => {
+      //     // do something when a notification is opened
+      //     alert('handleNotificationOpened subscribe ');
+      // });
+
+      OneSignal.endInit();
+  }
+
+  notificationOpenedCallback(jsonData) {
+      console.log('notificationOpenedCallback: ' + JSON.stringify(jsonData));
+      alert('notificationOpenedCallback: ' + JSON.stringify(jsonData));
+  }
+
+  notificationReceivedCallback(jsonData) {
+      // console.log('notificationOpenedCallback: ' + JSON.stringify(jsonData));
+      alert('notificationReceivedCallback: ' + JSON.stringify(jsonData));
+  }
 }

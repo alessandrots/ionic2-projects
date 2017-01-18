@@ -6,7 +6,8 @@ import { Http, Headers, RequestOptions} from '@angular/http';
 import { ListPage } from '../list-page/list-page';
 import 'rxjs/add/operator/map';
 import { Storage } from '@ionic/storage';
-import { UserListPage } from '../list-user/list-user'
+import { UserListPage } from '../list-user/list-user';
+import { MapaPage } from '../mapa/mapa';
 
 @Component({
   templateUrl: 'login.html',
@@ -75,6 +76,10 @@ export class LoginPage {
 
   listUsers() {
     this.navCtrl.push(UserListPage, {});
+  }
+
+  goToMapa() {
+    this.navCtrl.push(MapaPage, {});
   }
 
 }
