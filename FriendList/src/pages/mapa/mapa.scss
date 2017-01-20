@@ -1,3 +1,36 @@
-page-mapa {
+#mapaView {
+  width: 100%;
+  height: 100%;
+}
+.no-scroll .scroll-content{
+  overflow: hidden;
+}
+ion-nav.has-views {
+  background-color: transparent !important;
+}
 
+ion-app._gmaps_cdv_ .nav-decor {
+  background-color: rgba(0,0,0,0) !important;
+}
+
+ion-popover {
+  &.popover-map {
+    .popover-wrapper {
+      .popover-content {
+        bottom: 0;
+        top: auto !important;
+        width: 100%;
+        left: 0 !important;
+        height: auto;
+        border-radius: 3px 3px 0 0;
+        box-shadow: 0 -2px 9px rgba(0, 0, 0, 0.31);
+        h2 {
+          font-weight: 500;
+        }
+        .popover-viewport {
+          height: 100%;
+        }
+      }
+    }
+  }
 }

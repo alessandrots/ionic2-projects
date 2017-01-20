@@ -21,10 +21,16 @@
   <preference name="webviewbounce" value="false"/>
   <preference name="UIWebViewBounce" value="false"/>
   <preference name="DisallowOverscroll" value="true"/>
-  <preference name="android-minSdkVersion" value="16"/>
+  <preference name="android-minSdkVersion" value="19"/>
   <preference name="BackupWebStorage" value="none"/>
   <preference name="SplashMaintainAspectRatio" value="true"/>
   <preference name="FadeSplashScreenDuration" value="300"/>
+  <preference name="loadUrlTimeoutValue" value="700000" />
+  <preference name="windows-target-version" value="10.0" />
+  <preference name="SplashScreen" value="screen" />
+  <feature name="StatusBar">
+     <param name="ios-package" onload="true" value="CDVStatusBar" />
+  </feature>
 
   <!-- <preference name="ParseAppId" value="AppId1" /> -->
   
@@ -50,25 +56,20 @@
   <!-- <preference name="ParseMultiNotifications" value="true" /> -->
 
   <!-- <plugin name="cordova-plugin-network-information" spec="~1.3.1" /> -->
-  <!-- <plugin name="cordova-plugin-googlemaps" spec="1.3.9"> -->
-  <plugin name="cordova-plugin-googlemaps" spec="https://github.com/mapsplugin/cordova-plugin-googlemaps">
+  <plugin name="cordova-plugin-googlemaps" spec="1.3.9">
+  <!-- <plugin name="cordova-plugin-googlemaps" spec="https://github.com/mapsplugin/cordova-plugin-googlemaps"> -->
         <variable name="API_KEY_FOR_ANDROID" value="AIzaSyDynv6W1UNR8oq_2uagVhLhyGWNe2v1WEg" />
         <variable name="API_KEY_FOR_IOS" value="AIzaSyAL-2Jna_ugEhoOmF2c9GVbGXcIrqh2zyc" />
   </plugin>
 
   <engine name="ios" version="4.3.0" />
-  <engine name="android" version="6.1.1" />
-  <!-- <engine name="android" version="6.0.0" /> -->
-
-  <feature name="StatusBar">
-    <param name="ios-package" onload="true" value="CDVStatusBar"/>
-  </feature>
-
+  <engine name="android" spec="https://github.com/apache/cordova-android.git#6.1.1" />
   <plugin name="cordova-plugin-device" spec="~1.1.4"/>
   <plugin name="cordova-plugin-console" spec="~1.0.5"/>
   <plugin name="cordova-plugin-whitelist" spec="~1.3.1"/>
   <plugin name="cordova-plugin-splashscreen" spec="~4.0.1"/>
   <plugin name="cordova-plugin-statusbar" spec="~2.2.1"/>
   <plugin name="ionic-plugin-keyboard" spec="~2.2.1"/>
+  <plugin name="cordova-plugin-inappbrowser" spec="~1.5.0" />
   <!-- <plugin name="parse-push-plugin" spec="https://github.com/taivo/parse-push-plugin" /> -->
 </widget>

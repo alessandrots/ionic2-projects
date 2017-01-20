@@ -2,8 +2,7 @@ import { Component, ViewChild, Input } from '@angular/core';
 import {NavController, Platform, AlertController} from 'ionic-angular';
 // import { NavController, NavParams } from 'ionic-angular';
 // import { GoogleMap, GoogleMapsEvent, GoogleMapsLatLng, CameraPosition, GoogleMapsMarkerOptions, GoogleMapsMarker } from 'ionic-native';
-// import { GoogleMap, GoogleMapsEvent, GoogleMapsLatLng, GoogleMapsMarkerOptions, GoogleMapsMarker } from 'ionic-native';
-import { GoogleMap, GoogleMapsLatLng, GoogleMapsMarkerOptions, GoogleMapsMarker } from 'ionic-native';
+import { GoogleMap, GoogleMapsEvent, GoogleMapsLatLng, GoogleMapsMarkerOptions, GoogleMapsMarker } from 'ionic-native';
 
 /*
   http://ionicframework.com/docs/v2/native/google-maps/
@@ -19,40 +18,23 @@ export class MapaPage {
   @Input() public latitude: any;
   @Input() public longitude: any;
   @Input() public mensagemErro: string;
-  @Input() public estabelecimentos: any[];
+  // @Input() public estabelecimentos: any[];
 
   constructor(public navCtrl: NavController, public platform: Platform, public alertCtrl: AlertController) {
   }
 
-  // ngOnInit() {
-  ngAfterViewInit() {	
+  ngOnInit() {
 	    if (!this.map) {
-	    	console.log('this.mapView.nativeElement = ', this.mapView.nativeElement);
-	      	this.map = new GoogleMap(this.mapView.nativeElement);
-	      	this.map.setDebuggable(true);
+	      this.map = new GoogleMap(this.mapView.nativeElement);
+	      this.map.setDebuggable(true);
 	    }
 
 	    GoogleMap.isAvailable().then(() => {
 	      this.map.setZoom(12);
 	      this.map.setMyLocationEnabled(true);
 	      this.map.clear();
-	      alert('Map is ready!');
 	      // this.montarMarkers();
 	    });
-
-	    let ionic: GoogleMapsLatLng = new GoogleMapsLatLng(43.0741904,-89.3809802);
-
-		// create new marker
-		let markerOptions: GoogleMapsMarkerOptions = {
-			   position: ionic,
-			   title: 'Ionic'
-		};
-
-		this.map.addMarker(markerOptions)
-			   .then((marker: GoogleMapsMarker) => {
-			      marker.showInfoWindow();
-		});
-	    // });
    }
 
 
@@ -61,9 +43,9 @@ export class MapaPage {
 	//  	this.loadMap();
 	// }
 
-	// ngOnInit() {
-	//     this.loadMap();
- //    }
+	// // ngOnInit() {
+	// //     this.loadMap();
+ // //    }
 
 	// // make sure to create following structure in your view.html file
 	// // <ion-content>
@@ -132,8 +114,10 @@ export class MapaPage {
 	// 	 //   tilt: 30
 	// 	 // };
 
-	// 	 // // // move the map's camera to position
+	// 	 // // move the map's camera to position
 	// 	 // map.moveCamera(position);
+
+
 	// }
 
 }
