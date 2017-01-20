@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "735188278908",
+    "firebase_url": "https://friendslist-713dd.firebaseio.com",
+    "project_id": "friendslist-713dd",
+    "storage_bucket": "friendslist-713dd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:735188278908:android:53bce1d2e77ed063",
+        "android_client_info": {
+          "package_name": "com.ionicframework.friendlist926570"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "735188278908-61gtr1lqu57h799h72u0nvrope5okhoi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCfhzemL1UvVC5NBU_q7e0RC2CWLBuSNZg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

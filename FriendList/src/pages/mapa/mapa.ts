@@ -24,8 +24,8 @@ export class MapaPage {
   constructor(public navCtrl: NavController, public platform: Platform, public alertCtrl: AlertController) {
   }
 
-  // ngOnInit() {
-  ngAfterViewInit() {	
+  ngOnInit() {
+  // ngAfterViewInit() {	
 	    if (!this.map) {
 	    	console.log('this.mapView.nativeElement = ', this.mapView.nativeElement);
 	      	this.map = new GoogleMap(this.mapView.nativeElement);
@@ -35,7 +35,7 @@ export class MapaPage {
 	    GoogleMap.isAvailable().then(() => {
 	      this.map.setZoom(12);
 	      this.map.setMyLocationEnabled(true);
-	      this.map.clear();
+	      // this.map.clear();
 	      alert('Map is ready!');
 	      // this.montarMarkers();
 	    });
