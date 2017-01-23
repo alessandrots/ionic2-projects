@@ -61,12 +61,12 @@
   <!-- <preference name="ParseMultiNotifications" value="true" /> -->
 
   <!-- <plugin name="cordova-plugin-network-information" spec="~1.3.1" /> -->
-  <plugin name="cordova-plugin-googlemaps" spec="1.3.9">
-  <!-- <plugin name="cordova-plugin-googlemaps" spec="https://github.com/mapsplugin/cordova-plugin-googlemaps"> -->
+  <!-- <plugin name="cordova-plugin-googlemaps" spec="1.3.9"> -->
+  <plugin name="cordova-plugin-googlemaps" spec="https://github.com/mapsplugin/cordova-plugin-googlemaps">
         <variable name="API_KEY_FOR_ANDROID" value="AIzaSyDynv6W1UNR8oq_2uagVhLhyGWNe2v1WEg" />
         <variable name="API_KEY_FOR_IOS" value="AIzaSyAL-2Jna_ugEhoOmF2c9GVbGXcIrqh2zyc" />
   </plugin>
-  <plugin name="cordova-plugin-googlemaps" spec="1.3.9" />
+ <!--  <plugin name="cordova-plugin-googlemaps" spec="1.3.9" /> -->
 
   <engine name="ios" version="4.3.0" />
   <engine name="android" spec="https://github.com/apache/cordova-android.git#6.1.1" />

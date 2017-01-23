@@ -2,7 +2,7 @@ import { Component, ViewChild, Input, ElementRef } from '@angular/core';
 import {NavController, Platform, AlertController } from 'ionic-angular';
 // import { NavController, NavParams } from 'ionic-angular';
 // import { GoogleMap, GoogleMapsEvent, GoogleMapsLatLng, CameraPosition, GoogleMapsMarkerOptions, GoogleMapsMarker } from 'ionic-native';
-import { GoogleMap, GoogleMapsEvent, GoogleMapsLatLng, GoogleMapsMarkerOptions, GoogleMapsMarker } from 'ionic-native';
+import { GoogleMap, GoogleMapsEvent, GoogleMapsLatLng, GoogleMapsMarkerOptions, GoogleMapsMarker, Geolocation } from 'ionic-native';
 // import { GoogleMap, GoogleMapsLatLng, GoogleMapsMarkerOptions, GoogleMapsMarker } from 'ionic-native';
 
 // declare var google;
